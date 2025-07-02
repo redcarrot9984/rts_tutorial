@@ -1,25 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FaceCamera : MonoBehaviour
 {
-    private Camera mainCamera;
+    private Transform localTrans;
 
-    void Start()
+    public Camera facingCamera;
+
+    private void Start()
     {
-        // メインカメラを一度だけ取得する
-        mainCamera = Camera.main;
+        localTrans = GetComponent<Transform>();
     }
 
-    void LateUpdate()
+    private void Update()
     {
-        // カメラが取得できていなければ何もしない
-        if (mainCamera == null)
+        if (facingCamera)
         {
-            return;
+            localTrans.LookAt(2 * localTrans.position - facingCamera.transform.position);
         }
-
-        // このオブジェクトの向きを、メインカメラの向きと完全に同じにする
-        // これにより、UIは常にカメラに対してまっすぐ表示される
-        transform.rotation = mainCamera.transform.rotation;
     }
 }
