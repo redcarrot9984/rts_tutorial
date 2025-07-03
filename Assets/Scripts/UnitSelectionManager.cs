@@ -191,11 +191,37 @@ public class UnitSelectionManager : MonoBehaviour
 
   private void EnableUnitMovement(GameObject unit, bool shouldMove)
   {
-    unit.GetComponent<UnitMovement>().enabled = shouldMove;
+   // unitが破壊されている場合も考慮
+    if (unit == null) return;
+
+    // UnitMovementスクリプトを持っているかチェックする
+    UnitMovement movementScript = unit.GetComponent<UnitMovement>();
+    if (movementScript != null) // ★もし見つかった場合のみ実行
+    {
+        movementScript.enabled = shouldMove;
+    }
+   
+   
   }
 
     private void TriggerSelectionIndicator(GameObject unit, bool isVisible)
     {
-        unit.transform.Find("Indicator").gameObject.SetActive(isVisible);}
+    
+    //geminiにより変更
+     // unitが破壊されている場合も考慮する
+    if (unit == null) return;
+
+    Transform indicator = unit.transform.Find("Indicator");
+    if (indicator != null) // ★もし "Indicator" が見つかった場合のみ実行
+    {
+        indicator.gameObject.SetActive(isVisible);
+    }
+ 
+        
+        
+        
+        }
+        
+        
 
 }
