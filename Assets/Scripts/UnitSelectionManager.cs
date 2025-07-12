@@ -206,6 +206,7 @@ public class UnitSelectionManager : MonoBehaviour
 
     private void TriggerSelectionIndicator(GameObject unit, bool isVisible)
     {
+<<<<<<< HEAD
     
     //gemini‚É‚æ‚è•ÏX
      // unit‚ª”j‰ó‚³‚ê‚Ä‚¢‚éê‡‚àl—¶‚·‚é
@@ -223,5 +224,8 @@ public class UnitSelectionManager : MonoBehaviour
         }
         
         
+=======
+        unit.transform.GetChild(0).gameObject.SetActive(isVisible);}
+>>>>>>> parent of 091c91f (good)
 
 }

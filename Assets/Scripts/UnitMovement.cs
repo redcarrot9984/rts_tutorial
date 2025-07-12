@@ -10,17 +10,30 @@ public class UnitMovement : MonoBehaviour
 	public LayerMask ground;
 
     public bool isCommandedToMove;
-    
-    Animator animator;
 
 	private void Start()
 	{
 		cam = Camera.main;
 		agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
-		animator = GetComponent<Animator>();
 	}
 	
+<<<<<<< HEAD
 	// UnitMovement.cs の Updateメソッドを置き換える
+=======
+	private void Update()
+	{
+		if(Input.GetMouseButtonDown(1))
+		{
+			RaycastHit hit;
+			Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+			
+			if(Physics.Raycast(ray, out hit, Mathf.Infinity, ground))
+			{
+			    isCommandedToMove = true;
+				agent.SetDestination(hit.point);
+			}
+		}
+>>>>>>> parent of 091c91f (good)
 
 private void Update()
 {
@@ -31,6 +44,7 @@ private void Update()
 
         if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
+<<<<<<< HEAD
             // 必要なコンポーネントを取得
             AttackController attackController = GetComponent<AttackController>();
             Worker worker = GetComponent<Worker>();
@@ -58,6 +72,9 @@ private void Update()
 
                 agent.SetDestination(hit.point);
             }
+=======
+            isCommandedToMove = false;
+>>>>>>> parent of 091c91f (good)
         }
     }
 

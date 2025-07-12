@@ -43,15 +43,15 @@ public class AttackController : MonoBehaviour
      }
     public void SetIdleMaterial()
     {
-      // GetComponent<Renderer>().material = idleStateMaterial;
+       GetComponent<Renderer>().material = idleStateMaterial;
     }
     public void SetAttackMaterial()
     {
-         //GetComponent<Renderer>().material = attackStateMaterial;
+         GetComponent<Renderer>().material = attackStateMaterial;
      }
     public void SetFollowMaterial()
     {
-       // GetComponent<Renderer>().material = followStateMaterial;
+        GetComponent<Renderer>().material = followStateMaterial;
     }
 
     private void OnDrawGizmos()
